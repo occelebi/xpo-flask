@@ -1,0 +1,10 @@
+FROM python:3.8.2-alpine
+
+#Install Flask and prometheus client
+RUN pip3 install --upgrade pip && pip3 install --no-cache-dir Flask flask_prometheus_metrics
+
+#Install dependencies in setup.py
+EXPOSE 5000
+
+#Glue together all files __init__.py, run.py, bucket.py and run the app
+CMD ["python3", "run.py"]
